@@ -12,7 +12,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
@@ -24,7 +26,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "fetch-mock": "^6.3.0",
-    "jest-each": "^0.3.1"
+    "jest-each": "^0.3.1",
+    "@storybook/react": "^3.4.2",
+    "@storybook/addon-actions": "^3.4.2",
+    "@storybook/addon-links": "^3.4.2",
+    "@storybook/addons": "^3.4.2",
+    "babel-core": "^6.26.0"
   },
   "jest": {
     "coverageThreshold": {
