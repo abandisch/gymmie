@@ -1,0 +1,24 @@
+/* General Styles */
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+}
+
+.container {
+  max-width: 960px;
+}
+
+/* Sticky Footer */
+.page-wrapper {
+  min-height: calc(100vh - 92px);
+}

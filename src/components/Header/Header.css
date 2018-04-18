@@ -1,0 +1,33 @@
+header {
+  width: 100%;
+  background-color: rgb(1, 41, 64);
+  background: linear-gradient(
+      rgba(1, 41, 64, 0.45),
+      rgba(1, 41, 64, 0.45)
+    ), url('/static-assets/images/header-bg-480.jpg') no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  height: 100px;
+  padding: 0;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-size: 8vw;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0 0;
+}
+header img {
+  width: 24px;
+  vertical-align: middle;
+}
+header span {
+  display: block;
+  text-align: center;
+}
+header h1, header span {
+  color: #f8f9fb;
+  text-shadow: 2px 4px 1px #222, 4px 3px 5px #222;
+}
