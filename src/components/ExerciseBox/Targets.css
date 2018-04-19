@@ -1,0 +1,20 @@
+.exercise-box .targets {
+  text-align: center;
+  background-color: #edf5f0;
+  padding: 10px;
+  border-color: #91969880;
+  border-bottom: 1px solid;
+  margin: 0;
+}
+.exercise-box .targets .heading {
+  font-size: 4vw;
+  font-style: italic;
+  margin: 0 0 4px;
+  font-weight: bold;
+  color: '#2a4032';
+  padding: 5px;
+}
+.exercise-box .targets .target-numbers {
+  margin: 0;
+  font-size: 4vw;
+}

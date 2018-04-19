@@ -1,0 +1,10 @@
+.exercise-box .last-session {
+  background-color: #263A40;
+  padding: 10px;
+  text-align: center;
+}
+.exercise-box .last-session p {
+  color: #fff;
+  margin: 0;
+  font-size: 3.7vw;
+}

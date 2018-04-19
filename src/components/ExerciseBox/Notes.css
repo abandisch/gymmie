@@ -1,0 +1,14 @@
+.exercise-box .pt-notes {
+  background-color: #eee;
+  padding: 10px;
+  border-bottom: 2px solid #263A40;
+}
+.exercise-box .pt-notes span {
+  display: block;
+  font-weight: bold;
+  font-size: 4vw;
+}
+.exercise-box .pt-notes p {
+  margin: 5px 0 0;
+  font-size: 3.5vw;
+}
