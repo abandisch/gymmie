@@ -1,7 +1,9 @@
 import React from 'react';
 import 'normalize.css';
 import WebFont from 'webfontloader';
-import Header from '../components/Header';
+import Landing from './pages/Landing';
+import Header from './Header';
+import Footer from './Footer';
 import './Root.css';
 
 WebFont.load({
@@ -11,8 +13,12 @@ WebFont.load({
 });
 
 const Root = () => (
-  <div className="page-wrapper">
-    <Header />
+  <div>
+    <div className="page-wrapper">
+      <Header />
+      <Landing />
+    </div>
+    <Footer />
   </div>
 );
 

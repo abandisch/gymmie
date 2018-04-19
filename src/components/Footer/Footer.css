@@ -1,0 +1,21 @@
+/* Footer */
+footer {
+  background-color: #012940;
+  color: #eee;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 15px;
+  height: 92px;
+}
+footer .footer-contents {
+  max-width: 960px;
+  height: 100%;
+}
+footer p {
+  margin: 0;
+  padding: 0 0 8px;
+}
+footer p a, footer p a:visited {
+  text-decoration: none;
+  color: #eee;
+}
