@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'normalize.css';
 import WebFont from 'webfontloader';
+import GraphQLWrapper from './GraphQLWrapper';
 import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/Landing';
 import OwnWorkoutPage from './pages/OwnWorkout';
@@ -22,22 +23,24 @@ WebFont.load({
 const store = configureStore();
 
 const Root = () => (
-  <Provider store={store}>
-    <Router>
-      <MuiThemeProvider>
-        <div>
-          <div className="page-wrapper">
-            <Header />
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/dashboard/my-workout" component={OwnWorkoutPage} />
-            <Route exact path="/dashboard/training-programs" component={ProgramsPage} />
+  <GraphQLWrapper>
+    <Provider store={store}>
+      <Router>
+        <MuiThemeProvider>
+          <div>
+            <div className="page-wrapper">
+              <Header />
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard/my-workout" component={OwnWorkoutPage} />
+              <Route exact path="/dashboard/training-programs" component={ProgramsPage} />
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </MuiThemeProvider>
-    </Router>
-  </Provider>
+        </MuiThemeProvider>
+      </Router>
+    </Provider>
+  </GraphQLWrapper>
 );
 
 export default Root;

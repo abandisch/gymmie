@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import './Dashboard.css';
 
 const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
   <section className="dashboard">
-
+    <h2>Gymmie Dashboard</h2>
     <p>
       Select your preferred Workout.
     </p>
