@@ -12,6 +12,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import DialogModal from '../DialogModal';
+import { selectProgram } from '../../actions';
 
 const iconButtonElement = (
   <IconButton
@@ -35,12 +36,12 @@ export const CreateListItem = ({
 }) => (
   <div>
     <ListItem
-      onClick={onSelectProgram(item.id)}
+      onClick={onSelectProgram(item.id, item.name)}
       primaryText={item.name}
       rightIconButton={
         rightIconMenu(
           onClickMenuSummary(item.name, item.summary),
-          onClickMenuProgram(item.id),
+          onClickMenuProgram(item.id, item.name),
         )
       }
       secondaryText={
@@ -82,6 +83,7 @@ export const CreateList =
 CreateList.propTypes = {
   onSelectProgram: PropTypes.func.isRequired,
   onClickSummaryMenuItem: PropTypes.func.isRequired,
+  onClickSelectProgramMenuItem: PropTypes.func.isRequired,
   allPrograms: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -90,8 +92,8 @@ CreateList.propTypes = {
 };
 
 class ProgramList extends React.Component {
-  onSelectProgram = programId => () => {
-    this.selectProgram(programId);
+  onSelectProgram = (programId, programName) => () => {
+    this.doSelectProgram(programId, programName);
   };
 
   onClickSummaryMenuItem = (programName, programSummary) => () => {
@@ -101,12 +103,13 @@ class ProgramList extends React.Component {
     return <DialogModal title={programName} message={programSummary} />;
   };
 
-  onClickSelectProgramMenuItem = programId => () => {
-    this.selectProgram(programId);
+  onClickSelectProgramMenuItem = (programId, programName) => () => {
+    this.doSelectProgram(programId, programName);
   };
 
-  selectProgram = (programId) => {
-    const { history } = this.props;
+  doSelectProgram = (programId, programName) => {
+    const { history, selectTrainingProgram } = this.props;
+    selectTrainingProgram(programId, programName);
     history.push(`/dashboard/training-programs/${programId}`);
   };
 
@@ -131,6 +134,7 @@ class ProgramList extends React.Component {
 }
 
 ProgramList.propTypes = {
+  selectTrainingProgram: PropTypes.func.isRequired,
   isLoadingSelectedProgram: PropTypes.bool.isRequired,
   programs: PropTypes.PropTypes.shape({}).isRequired,
   history: PropTypes.PropTypes.shape({}).isRequired,
@@ -147,8 +151,13 @@ export const mapStateToProps = state => ({
   isLoadingSelectedProgram: !!state.loading.selectProgram,
 });
 
+export const mapDispatchToProps = dispatch => ({
+  selectTrainingProgram:
+    (programId, programName) => dispatch(selectProgram(programId, programName)),
+});
+
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   graphql(ALL_PROGRAMS_QUERY, { name: 'programs' }),
   withApollo,
   withRouter,
