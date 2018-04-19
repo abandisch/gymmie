@@ -1,0 +1,68 @@
+.exercise-box {
+  margin: 0 0 20px;
+}
+.exercise-box h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 5vw;
+  background-color: #1e7ca7;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+.exercise-box .set-table {
+  font-size: 0.8em;
+  width: 100%;
+  margin: 0 0 10px;
+}
+.exercise-box .set-table th, .set-table td {
+  text-align: center;
+  padding: 8px 0;
+  height: 31px;
+  border-bottom: 1px solid #cecaca;
+  font-weight: normal;
+}
+.exercise-box .targets {
+  text-align: center;
+  background-color: #edf5f0;
+  padding: 10px;
+  border-color: #91969880;
+  border-bottom: 1px solid;
+  margin: 0;
+}
+.exercise-box .targets .heading {
+  font-size: 4vw;
+  font-style: italic;
+  margin: 0 0 4px;
+  font-weight: bold;
+  color: '#2a4032';
+  padding: 5px;
+}
+.exercise-box .targets .target-numbers {
+  margin: 0;
+  font-size: 4vw;
+}
+.exercise-box .pt-notes {
+  background-color: #eee;
+  padding: 10px;
+  border-bottom: 2px solid #263A40;
+}
+.exercise-box .pt-notes span {
+  display: block;
+  font-weight: bold;
+  font-size: 4vw;
+}
+.exercise-box .pt-notes p {
+  margin: 5px 0 0;
+  font-size: 3.5vw;
+}
+.exercise-box .last-session {
+  background-color: #263A40;
+  padding: 8px;
+  text-align: center;
+}
+.exercise-box .last-session p {
+  color: #fff;
+  margin: 0;
+}

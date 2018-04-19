@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/Landing';
 import OwnWorkoutPage from './pages/OwnWorkout';
 import ProgramsPage from './pages/Programs';
+import ExercisesPage from './pages/Exercises';
 import Header from './Header';
 import Footer from './Footer';
 import configureStore from '../configureStore';
@@ -34,6 +35,7 @@ const Root = () => (
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/dashboard/my-workout" component={OwnWorkoutPage} />
               <Route exact path="/dashboard/training-programs" component={ProgramsPage} />
+              <Route exact path="/dashboard/training-programs/:programId" component={ExercisesPage} />
             </div>
             <Footer />
           </div>
