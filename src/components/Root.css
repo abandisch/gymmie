@@ -23,6 +23,11 @@ section {
   padding: 0 15px;
 }
 
+.section-title {
+  text-align: center;
+  font-size: 5.5vw;
+}
+
 /* Sticky Footer */
 .page-wrapper {
   min-height: calc(100vh - 92px);

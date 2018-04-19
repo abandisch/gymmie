@@ -5,7 +5,7 @@ import './Dashboard.css';
 
 const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
   <section className="dashboard">
-    <h2>Gymmie Dashboard</h2>
+    <h2 className="section-title">Gymmie Dashboard</h2>
     <p>
       Select your preferred Workout.
     </p>
