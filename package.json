@@ -67,5 +67,9 @@
       "json",
       "html"
     ]
+  },
+  "now": {
+    "alias":"gymmie-abandisch",
+    "name": "gymmie"
   }
 }
