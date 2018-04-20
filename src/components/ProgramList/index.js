@@ -12,7 +12,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import DialogModal from '../DialogModal';
-import { selectProgram } from '../../actions';
+import { selectProgram, showModal } from '../../actions';
 
 export const iconButtonElement = (
   <IconButton
@@ -97,10 +97,8 @@ class ProgramList extends React.Component {
   };
 
   onClickSummaryMenuItem = (programName, programSummary) => () => {
-    console.log('clicked the sumamry menu item.');
-    console.log('name:', programName);
-    console.log('summary:', programSummary);
-    return <DialogModal title={programName} message={programSummary} />;
+    const { showDialogModal } = this.props;
+    showDialogModal(`Program Summary: ${programName}`, programSummary);
   };
 
   onClickSelectProgramMenuItem = (programId, programName) => () => {
@@ -138,6 +136,7 @@ ProgramList.propTypes = {
   isLoadingSelectedProgram: PropTypes.bool.isRequired,
   programs: PropTypes.PropTypes.shape({}).isRequired,
   history: PropTypes.PropTypes.shape({}).isRequired,
+  showDialogModal: PropTypes.func.isRequired,
 };
 
 const ALL_PROGRAMS_QUERY = gql`
@@ -154,6 +153,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   selectTrainingProgram:
     (programId, programName) => dispatch(selectProgram(programId, programName)),
+  showDialogModal: (title, message) => dispatch(showModal(title, message)),
 });
 
 export default compose(

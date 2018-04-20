@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { fullWhite } from 'material-ui/styles/colors';
 import RightArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 import RequiresLogin from '../../RequiresLogin';
-import DialogModal from '../../DialogModal';
+import { showModal } from '../../../actions';
 import './Dashboard.css';
 
 const styles = {
@@ -88,9 +88,8 @@ Board.propTypes = {
 export class DashboardContainer extends React.Component {
   onSubmitOwnWorkout = (event) => {
     event.preventDefault();
-    alert('Sorry, this is not part of the MVP.');
-    // this.redirectTo('/dashboard/my-workout');
-    return <DialogModal title="test" message="test message" />;
+    const { showDialogModal } = this.props;
+    showDialogModal('Not included in MVP', 'Sorry, this page is not part of the MVP, but it will be in the full version.');
   }
 
   onSubmitTrainerWorkout = (event) => {
@@ -124,14 +123,19 @@ export class DashboardContainer extends React.Component {
 DashboardContainer.propTypes = {
   history: PropTypes.shape({}).isRequired,
   currentProgramId: PropTypes.string.isRequired,
+  showDialogModal: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
   currentProgramId: state.program.id || '',
 });
 
+export const mapDispatchToProps = dispatch => ({
+  showDialogModal: (title, message) => dispatch(showModal(title, message)),
+});
+
 export default
 RequiresLogin()(compose(
   withRouter,
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
 )(DashboardContainer));

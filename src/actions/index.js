@@ -1,6 +1,18 @@
 import * as api from '../api';
 import * as types from './types';
 
+export const showModal = (title, message) => ({
+  type: types.SHOW_MODAL,
+  modalProps: {
+    title,
+    message,
+  },
+});
+
+export const hideModal = () => ({
+  type: types.HIDE_MODAL,
+});
+
 export const addExerciseSet = (exerciseId, set) => ({
   type: types.ADD_EXERCISE_SET,
   exerciseId,

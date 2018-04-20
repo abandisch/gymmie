@@ -10,6 +10,7 @@ describe('<DashboardContainer />', () => {
       },
       currentProgramId: 'test-id',
       onSubmitCurrentTrainerWorkout: jest.fn(),
+      showDialogModal: jest.fn(),
     };
     shallow(<DashboardContainer {...props} />);
   });

@@ -4,6 +4,7 @@ import user from './user';
 import loading from './loading';
 import program from './program';
 import exercises from './exercises';
+import modal from './modal';
 
 export default combineReducers({
   form: formReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   loading,
   program,
   exercises,
+  modal,
 });

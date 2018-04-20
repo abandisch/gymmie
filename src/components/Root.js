@@ -12,6 +12,7 @@ import ProgramsPage from './pages/Programs';
 import ExercisesPage from './pages/Exercises';
 import Header from './Header';
 import Footer from './Footer';
+import DialogModal from './DialogModal';
 import configureStore from '../configureStore';
 import './Root.css';
 
@@ -38,6 +39,7 @@ const Root = () => (
               <Route exact path="/dashboard/training-programs/:programId" component={ExercisesPage} />
             </div>
             <Footer />
+            <DialogModal />
           </div>
         </MuiThemeProvider>
       </Router>
