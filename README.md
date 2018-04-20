@@ -1,10 +1,10 @@
-# My Buddy Gymmie - Gym Strength/Workout Tracking
+# Gymmie - Strength/Workout Tracking Buddy [![Build Status](https://travis-ci.org/abandisch/gymmie.svg?branch=master)](https://travis-ci.org/abandisch/gymmie)
 
 This app lets people that regularly go to the gym track their exercise results in every session, allowing them to review their pervious results, so that with each new session, they can use the results of the previous session as the goal to beat (or match) for the current session. Over time the person going to the gym will be able to see how they have improved.
 
 ## Minimum Viable Product URL
 
-TBC
+https://gymmie-abandisch.now.sh/
 
 ## Stack
 
