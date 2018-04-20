@@ -28,12 +28,13 @@
   "scripts": {
     "start": "PORT=8081 NODE_ENV=development react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --maxWorkers=4",
     "devtest": "react-scripts test --env=jsdom --watch --coverage",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint .",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deploy": "now --token $NOW_TOKEN rm gymmie -y && now build -e NODE_ENV=production --public --token $NOW_TOKEN && now --token $NOW_TOKEN alias"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.2",
