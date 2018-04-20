@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { fullWhite } from 'material-ui/styles/colors';
 import RightArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 import RequiresLogin from '../../RequiresLogin';
+import DialogModal from '../../DialogModal';
 import './Dashboard.css';
 
 const styles = {
@@ -87,7 +88,9 @@ Board.propTypes = {
 export class DashboardContainer extends React.Component {
   onSubmitOwnWorkout = (event) => {
     event.preventDefault();
-    this.redirectTo('/dashboard/my-workout');
+    alert('Sorry, this is not part of the MVP.');
+    // this.redirectTo('/dashboard/my-workout');
+    // return <DialogModal title="test" message="test message" />;
   }
 
   onSubmitTrainerWorkout = (event) => {
