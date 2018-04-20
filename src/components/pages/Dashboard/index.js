@@ -89,7 +89,7 @@ export class DashboardContainer extends React.Component {
   onSubmitOwnWorkout = (event) => {
     event.preventDefault();
     const { showDialogModal } = this.props;
-    showDialogModal('Not included in MVP', 'Sorry, this page is not part of the MVP, but it will be in the full version.');
+    showDialogModal('Own Workout Page', 'Sorry, the "Own Workout Page" is not part of the MVP, but it will be in the full version.');
   }
 
   onSubmitTrainerWorkout = (event) => {

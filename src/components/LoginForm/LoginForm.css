@@ -9,10 +9,6 @@
 .login-form .btn {
   margin-top: 8px;
 }
-.login-form .loading {
-  text-align: center;
-  font-style: italic;
-}
 .login-form span {
   font-weight: bold; 
   display:block;

@@ -57,6 +57,22 @@ section {
   transition: all 0.1s ease-in-out;
 }
 
+/* Loading */
+.loading-container {
+  text-align: center;
+}
+.loading-container .loading {
+  text-align: center;
+  font-style: italic;
+  display: inline-block;
+  margin: 10px;
+  font-size: 15px;
+}
+.loading-container .loading + div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /*Chrom autofill textbox*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

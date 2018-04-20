@@ -11,6 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import { ScaleLoader } from 'react-spinners';
 import { selectProgram, showModal } from '../../actions';
 
 export const iconButtonElement = (
@@ -113,12 +114,18 @@ class ProgramList extends React.Component {
   render() {
     const { programs, isLoadingSelectedProgram } = this.props;
     if (isLoadingSelectedProgram) {
-      return <p>Loading selected Training Program...</p>;
+      return (
+        <div className="loading-container">
+          <p className="loading">Loading Training Program ...</p>
+          <ScaleLoader color="#00bcd4" height={20} width={3} margin="2px" radius={10} />
+        </div>);
     }
     if (programs.loading) {
       return (
-        <p>Getting Training Programs ...</p>
-      );
+        <div className="loading-container">
+          <p className="loading">Getting Training Programs ...</p>
+          <ScaleLoader color="#00bcd4" height={20} width={3} margin="2px" radius={10} />
+        </div>);
     }
 
     return (<CreateList

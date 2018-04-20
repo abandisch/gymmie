@@ -4,13 +4,18 @@ import { withRouter } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { compose } from 'recompose';
 import { graphql, withApollo } from 'react-apollo';
+import { ScaleLoader } from 'react-spinners';
 import * as utils from '../../utils';
 
 import ExerciseBox from '../ExerciseBox';
 
 export const ListOfExercises = ({ data }) => {
   if (data.loading) {
-    return <p>Loading exercises ...</p>;
+    return (
+      <div className="loading-container">
+        <p className="loading">Loading Exercises ...</p>
+        <ScaleLoader color="#00bcd4" height={20} width={3} margin="2px" radius={10} />
+      </div>);
   }
   const { exercises } = data.findByDay;
   return <ExercisesListView exercises={exercises} />;
