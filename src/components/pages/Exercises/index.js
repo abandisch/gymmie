@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import RequiresLogin from '../../RequiresLogin';
 import ExercisesList from '../../ExercisesList';
 
 const ExercisesPage = ({ match: { params } }) => {
@@ -21,4 +22,4 @@ ExercisesPage.propTypes = {
   }).isRequired,
 };
 // @TODO: connect it to the state here and have a 'exercises loading'
-export default withRouter(ExercisesPage);
+export default RequiresLogin()(withRouter(ExercisesPage));

@@ -1,4 +1,5 @@
 import React from 'react';
+import RequiresLogin from '../../RequiresLogin';
 import TrainingProgramList from '../../ProgramList';
 
 const ProgramsPage = () => (
@@ -12,4 +13,4 @@ const ProgramsPage = () => (
   </section>
 );
 
-export default ProgramsPage;
+export default RequiresLogin()(ProgramsPage);

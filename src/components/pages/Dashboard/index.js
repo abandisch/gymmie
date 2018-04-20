@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import RequiresLogin from '../../RequiresLogin';
 import './Dashboard.css';
 
 const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
@@ -58,4 +59,4 @@ Dashboard.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
-export default withRouter(Dashboard);
+export default RequiresLogin()(withRouter(Dashboard));
