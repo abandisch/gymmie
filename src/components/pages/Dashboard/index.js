@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import { fullWhite } from 'material-ui/styles/colors';
@@ -13,16 +15,18 @@ const styles = {
   },
 };
 
-export const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
+export const Board = ({
+  onSubmitOwnWorkout, onSubmitTrainerWorkout, currentProgramId, onSubmitCurrentTrainerWorkout,
+}) => (
   <section className="dashboard">
     <h2 className="section-title">Gymmie Dashboard</h2>
     <p>
-      Select your preferred Workout.
+      Select your preferred workout.
     </p>
 
     <form onSubmit={onSubmitOwnWorkout}>
       <RaisedButton
-        label="My own Workout"
+        label="Do my own Workout"
         labelPosition="before"
         icon={<RightArrow color={fullWhite} />}
         primary
@@ -32,9 +36,10 @@ export const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
       />
     </form>
 
+
     <form onSubmit={onSubmitTrainerWorkout}>
       <RaisedButton
-        label="Trainer defined Workoutt"
+        label="Select a new Trainer Workout"
         labelPosition="before"
         icon={<RightArrow color={fullWhite} />}
         primary
@@ -43,6 +48,31 @@ export const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
         style={styles.button}
       />
     </form>
+
+    <p>... Or continue your selected Trainer Workout program:</p>
+
+    {
+      currentProgramId === '' &&
+      <p className="not-started">
+        You haven&lsquo;t selected a Trainer Workout Program yet.
+        Click the above button to select one.
+      </p>
+    }
+
+    {
+      currentProgramId !== '' &&
+      <form onSubmit={onSubmitCurrentTrainerWorkout}>
+        <RaisedButton
+          label="Continue Your Selected Trainer Workout"
+          labelPosition="before"
+          icon={<RightArrow color={fullWhite} />}
+          primary
+          fullWidth
+          type="submit"
+          style={styles.button}
+        />
+      </form>
+    }
 
   </section>
 );
@@ -50,17 +80,27 @@ export const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
 Board.propTypes = {
   onSubmitOwnWorkout: PropTypes.func.isRequired,
   onSubmitTrainerWorkout: PropTypes.func.isRequired,
+  onSubmitCurrentTrainerWorkout: PropTypes.func.isRequired,
+  currentProgramId: PropTypes.string.isRequired,
 };
 
 export class DashboardContainer extends React.Component {
-  submitOwnWorkout = (event) => {
+  onSubmitOwnWorkout = (event) => {
     event.preventDefault();
     this.redirectTo('/dashboard/my-workout');
   }
 
-  submitTrainerWorkout = (event) => {
+  onSubmitTrainerWorkout = (event) => {
     event.preventDefault();
     this.redirectTo('/dashboard/training-programs');
+  }
+
+  onSubmitCurrentTrainerWorkout = (event) => {
+    event.preventDefault();
+    const { currentProgramId } = this.props;
+    if (currentProgramId !== '') {
+      this.redirectTo(`/dashboard/training-programs/${currentProgramId}`);
+    } // otherwise don't do anything
   }
 
   redirectTo = (path) => {
@@ -70,14 +110,25 @@ export class DashboardContainer extends React.Component {
 
   render() {
     return (<Board
-      onSubmitOwnWorkout={this.submitOwnWorkout}
-      onSubmitTrainerWorkout={this.submitTrainerWorkout}
+      onSubmitOwnWorkout={this.onSubmitOwnWorkout}
+      onSubmitTrainerWorkout={this.onSubmitTrainerWorkout}
+      onSubmitCurrentTrainerWorkout={this.onSubmitCurrentTrainerWorkout}
+      currentProgramId={this.props.currentProgramId}
     />);
   }
 }
 
 DashboardContainer.propTypes = {
   history: PropTypes.shape({}).isRequired,
+  currentProgramId: PropTypes.string.isRequired,
 };
 
-export default RequiresLogin()(withRouter(DashboardContainer));
+export const mapStateToProps = state => ({
+  currentProgramId: state.program.id || '',
+});
+
+export default
+RequiresLogin()(compose(
+  withRouter,
+  connect(mapStateToProps),
+)(DashboardContainer));

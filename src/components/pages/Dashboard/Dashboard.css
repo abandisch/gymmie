@@ -1,0 +1,6 @@
+.dashboard .not-started {
+  font-style: italic;
+  font-size: 4vw;
+  text-align: center;
+    color: #8a8a8a;
+}
