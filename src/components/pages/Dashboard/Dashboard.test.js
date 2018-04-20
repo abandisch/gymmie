@@ -8,6 +8,8 @@ describe('<DashboardContainer />', () => {
       history: {
         push: jest.fn(),
       },
+      currentProgramId: 'test-id',
+      onSubmitCurrentTrainerWorkout: jest.fn(),
     };
     shallow(<DashboardContainer {...props} />);
   });
@@ -18,6 +20,8 @@ describe('<Board />', () => {
     const props = {
       onSubmitOwnWorkout: jest.fn(),
       onSubmitTrainerWorkout: jest.fn(),
+      currentProgramId: 'test-id',
+      onSubmitCurrentTrainerWorkout: jest.fn(),
     };
     shallow(<Board {...props} />);
   });
