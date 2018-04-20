@@ -6,9 +6,12 @@ import { withRouter } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
 import RequiresLogin from '../../RequiresLogin';
 import ExercisesList from '../../ExercisesList';
+import * as utils from '../../../utils';
 import './Exercises.css';
 
-export const ExercisesPageComponent = ({ match: { params }, isLoading, programName }) => {
+export const ExercisesPageComponent = ({
+  match: { params }, isLoading, programName, weekNumber, dayNumber,
+}) => {
   const { programId } = params;
   return (
     <section className="exercises">
@@ -23,7 +26,7 @@ export const ExercisesPageComponent = ({ match: { params }, isLoading, programNa
         !isLoading &&
         <div>
           <h2 className="section-title">{programName}</h2>
-          <h3 className="week-and-day-number">Week 1 - Day 1</h3>
+          <h3 className="week-and-day-number">Week {weekNumber} - Day {dayNumber}</h3>
           <ExercisesList programId={programId} />
         </div>
       }
@@ -39,6 +42,8 @@ ExercisesPageComponent.propTypes = {
       programId: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  weekNumber: PropTypes.number.isRequired,
+  dayNumber: PropTypes.number.isRequired,
 };
 
 ExercisesPageComponent.defaultProps = {
@@ -49,6 +54,8 @@ ExercisesPageComponent.defaultProps = {
 export const mapStateToProps = state => ({
   isLoading: state.loading.selectProgram,
   programName: state.program.name,
+  weekNumber: utils.currentWeekNumber(state.program.startDate),
+  dayNumber: utils.currentDayNumber(state.program.startDate),
 });
 
 export default RequiresLogin()(compose(
