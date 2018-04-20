@@ -11,7 +11,6 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import DialogModal from '../DialogModal';
 import { selectProgram, showModal } from '../../actions';
 
 export const iconButtonElement = (
@@ -98,7 +97,7 @@ class ProgramList extends React.Component {
 
   onClickSummaryMenuItem = (programName, programSummary) => () => {
     const { showDialogModal } = this.props;
-    showDialogModal(`Program Summary: ${programName}`, programSummary);
+    showDialogModal(programName, programSummary);
   };
 
   onClickSelectProgramMenuItem = (programId, programName) => () => {

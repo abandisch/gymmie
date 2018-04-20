@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DialogModal, { ModalComponent } from './DialogModal';
+import { ModalComponent } from './DialogModal';
 
 describe('<ModalComponent />', () => {
   it('renders without crashing - not open', () => {
