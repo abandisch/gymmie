@@ -6,7 +6,7 @@ describe('# fetchJWT ', () => {
       Promise.resolve({
         json() {
           return ({
-            authToken: 'testauthtoken',
+            jwt: 'testauthtoken',
           });
         },
       }));
@@ -15,7 +15,7 @@ describe('# fetchJWT ', () => {
       email: 'test@test.com',
     };
     const expectedResult = {
-      authToken: 'testauthtoken',
+      jwt: 'testauthtoken',
     };
     expect.assertions(1);
     fetchJWT(user).then(result => expect(result).toEqual(expectedResult));

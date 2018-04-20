@@ -25,22 +25,16 @@ describe('async actions', () => {
           },
         );
 
+      const TEST_EMAIL = 'test@test.com';
+
       const expectedActions = [
         { type: types.FETCH_JWT_REQUEST },
-        { type: types.FETCH_JWT_SUCCESS, jwt: undefined },
+        { type: types.FETCH_JWT_SUCCESS, jwt: undefined, email: TEST_EMAIL },
       ];
-
-      const user = {
-        socialUserId: 'test',
-        image: 'image.jpg',
-        email: 'test@test.com',
-        name: 'test',
-        socialAppTokens: { type: 'Google' },
-      };
 
       const store = mockStore({ });
 
-      return store.dispatch(actions.fetchJWT(user)).then(() => {
+      return store.dispatch(actions.fetchJWT(TEST_EMAIL)).then(() => {
         // return of async actions
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -53,22 +47,16 @@ describe('async actions', () => {
           Promise.reject(new Error('An error')),
         );
 
-      const user = {
-        socialUserId: 'test',
-        image: 'image.jpg',
-        email: 'test@test.com',
-        name: 'test',
-        socialAppTokens: { type: 'Google' },
-      };
+      const TEST_EMAIL = 'test@test.com';
 
       const expectedActions = [
         { type: types.FETCH_JWT_REQUEST },
-        { type: types.FETCH_JWT_FAILURE, message: 'Problem connecting to GymBuddy.', user: { ...user } },
+        { type: types.FETCH_JWT_FAILURE, message: 'Problem connecting to undefined.', emailAddress: TEST_EMAIL },
       ];
 
       const store = mockStore({ });
 
-      return store.dispatch(actions.fetchJWT(user)).then(() => {
+      return store.dispatch(actions.fetchJWT(TEST_EMAIL)).then(() => {
         // return of async actions
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -111,7 +99,7 @@ describe('async actions', () => {
         { type: types.SELECT_PROGRAM_REQUEST },
         {
           type: types.SELECT_PROGRAM_FAILURE,
-          message: 'Problem connecting to GymBuddy.',
+          message: 'Problem connecting to undefined.',
         },
       ];
 

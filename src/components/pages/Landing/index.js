@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Intro from '../../Intro';
 import LoginForm from '../../LoginForm';
 
-const Landing = ({ isLoggedIn }) => {
+export const LandingComponent = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return <Redirect to="/dashboard" />;
   }
@@ -18,7 +18,7 @@ const Landing = ({ isLoggedIn }) => {
   );
 };
 
-Landing.propTypes = {
+LandingComponent.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
 };
 
@@ -26,4 +26,4 @@ export const mapStateToProps = state => ({
   isLoggedIn: state.user.gymTrackerJWT !== undefined,
 });
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps)(LandingComponent);

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import RequiresLogin from '../../RequiresLogin';
 import ExercisesList from '../../ExercisesList';
 
-const ExercisesPage = ({ match: { params } }) => {
+export const ExercisesPageComponent = ({ match: { params } }) => {
   const { programId } = params;
   return (
     <section className="exercises">
@@ -14,7 +14,7 @@ const ExercisesPage = ({ match: { params } }) => {
   );
 };
 
-ExercisesPage.propTypes = {
+ExercisesPageComponent.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       programId: PropTypes.string.isRequired,
@@ -22,4 +22,4 @@ ExercisesPage.propTypes = {
   }).isRequired,
 };
 // @TODO: connect it to the state here and have a 'exercises loading'
-export default RequiresLogin()(withRouter(ExercisesPage));
+export default RequiresLogin()(withRouter(ExercisesPageComponent));

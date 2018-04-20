@@ -14,7 +14,7 @@ import MenuItem from 'material-ui/MenuItem';
 import DialogModal from '../DialogModal';
 import { selectProgram } from '../../actions';
 
-const iconButtonElement = (
+export const iconButtonElement = (
   <IconButton
     touch
     tooltip="More"
@@ -24,7 +24,7 @@ const iconButtonElement = (
   </IconButton>
 );
 
-const rightIconMenu = (onClickMenuSummary, onClickMenuProgram) => (
+export const rightIconMenu = (onClickMenuSummary, onClickMenuProgram) => (
   <IconMenu iconButtonElement={iconButtonElement}>
     <MenuItem onClick={onClickMenuSummary}>Full Summary</MenuItem>
     <MenuItem onClick={onClickMenuProgram}>Select Program</MenuItem>

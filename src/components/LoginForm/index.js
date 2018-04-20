@@ -12,7 +12,7 @@ import { fetchJWT } from '../../actions';
 import Input from '../TextInput';
 import './LoginForm.css';
 
-export const LoginForm = ({ isLoadingLogin, onFormSubmitted }) => (
+export const LoginFormComponent = ({ isLoadingLogin, onFormSubmitted }) => (
   <Form className="login-form" onSubmit={onFormSubmitted}>
     <span>Enter your email address to get started</span>
     <Field
@@ -38,12 +38,12 @@ export const LoginForm = ({ isLoadingLogin, onFormSubmitted }) => (
   </Form>
 );
 
-LoginForm.propTypes = {
+LoginFormComponent.propTypes = {
   onFormSubmitted: PropTypes.func.isRequired,
   isLoadingLogin: PropTypes.bool.isRequired,
 };
 
-class FormContainer extends React.Component {
+export class FormContainer extends React.Component {
   onFormSubmitted = () => (values) => {
     const { submitLogin } = this.props;
     const { emailAddress } = values; // add password here later on.
@@ -52,7 +52,7 @@ class FormContainer extends React.Component {
 
   render() {
     const { handleSubmit, isLoadingLogin } = this.props;
-    return (<LoginForm
+    return (<LoginFormComponent
       isLoadingLogin={isLoadingLogin}
       onFormSubmitted={handleSubmit(this.onFormSubmitted())}
     />);

@@ -2,7 +2,7 @@ import React from 'react';
 import RequiresLogin from '../../RequiresLogin';
 import TrainingProgramList from '../../ProgramList';
 
-const ProgramsPage = () => (
+export const ProgramsPageComponent = () => (
   <section className="programs-page">
     <h2 className="section-title">Training Programs</h2>
     <p>
@@ -13,4 +13,4 @@ const ProgramsPage = () => (
   </section>
 );
 
-export default RequiresLogin()(ProgramsPage);
+export default RequiresLogin()(ProgramsPageComponent);

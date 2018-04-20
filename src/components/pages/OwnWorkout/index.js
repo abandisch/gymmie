@@ -1,7 +1,7 @@
 import React from 'react';
 
-const OwnWorkoutPage = () => (
+const OwnWorkout = () => (
   <p>Own workout page ... TBC</p>
 );
 
-export default OwnWorkoutPage;
+export default OwnWorkout;

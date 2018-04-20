@@ -4,14 +4,14 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 export const ModalComponent = ({
-  title, message, actions, open, handleClose,
+  title, message, actions, open, onClickClose,
 }) => (
   <Dialog
     title={title}
     actions={actions}
     modal={false}
     open={open}
-    onRequestClose={handleClose}
+    onRequestClose={onClickClose}
   >
     {message}
   </Dialog>
@@ -22,7 +22,7 @@ ModalComponent.propTypes = {
   message: PropTypes.string.isRequired,
   actions: PropTypes.arrayOf(PropTypes.node).isRequired,
   open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  onClickClose: PropTypes.func.isRequired,
 };
 
 class DialogModal extends React.Component {
@@ -30,7 +30,7 @@ class DialogModal extends React.Component {
     open: true,
   };
 
-  handleClose = () => {
+  onClickClose = () => {
     this.setState({ open: false });
   };
 
@@ -40,7 +40,7 @@ class DialogModal extends React.Component {
       <FlatButton
         label="Ok"
         primary
-        onClick={this.handleClose}
+        onClick={this.onClickClose}
       />,
     ];
 
@@ -52,7 +52,7 @@ class DialogModal extends React.Component {
       actions={actions}
       modal={false}
       open={this.state.open}
-      onRequestClose={this.handleClose}
+      onRequestClose={this.onClickClose}
     />);
   }
 }

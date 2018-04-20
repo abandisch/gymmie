@@ -13,7 +13,7 @@ const styles = {
   },
 };
 
-const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
+export const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
   <section className="dashboard">
     <h2 className="section-title">Gymmie Dashboard</h2>
     <p>
@@ -46,24 +46,13 @@ const Board = ({ onSubmitOwnWorkout, onSubmitTrainerWorkout }) => (
 
   </section>
 );
-/*
-      <button className="btn btn-start">
-        <i className="fa fa-play" /> My own Workout
-      </button>
-*/
-
-/*
-      <button className="btn btn-start">
-        <i className="fa fa-play" /> Trainer defined Workout
-      </button>
-*/
 
 Board.propTypes = {
   onSubmitOwnWorkout: PropTypes.func.isRequired,
   onSubmitTrainerWorkout: PropTypes.func.isRequired,
 };
 
-class Dashboard extends React.Component {
+export class DashboardContainer extends React.Component {
   submitOwnWorkout = (event) => {
     event.preventDefault();
     this.redirectTo('/dashboard/my-workout');
@@ -87,8 +76,8 @@ class Dashboard extends React.Component {
   }
 }
 
-Dashboard.propTypes = {
+DashboardContainer.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
-export default RequiresLogin()(withRouter(Dashboard));
+export default RequiresLogin()(withRouter(DashboardContainer));
