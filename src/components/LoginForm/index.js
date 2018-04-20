@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, Form } from 'redux-form';
+import RaisedButton from 'material-ui/RaisedButton';
+import { fullWhite } from 'material-ui/styles/colors';
+import PlayCircleOutline from 'material-ui/svg-icons/av/play-circle-outline';
 import 'font-awesome/css/font-awesome.min.css';
 import { requiredEmail, email, nonEmpty } from './validators';
 import { fetchJWT } from '../../actions';
 import Input from '../TextInput';
-
-
 import './LoginForm.css';
 
-export const Form = ({ isLoadingLogin, onFormSubmitted }) => (
-  <form className="login-form" onSubmit={onFormSubmitted}>
+export const LoginForm = ({ isLoadingLogin, onFormSubmitted }) => (
+  <Form className="login-form" onSubmit={onFormSubmitted}>
     <span>Enter your email address to get started</span>
     <Field
       name="emailAddress"
@@ -24,11 +25,20 @@ export const Form = ({ isLoadingLogin, onFormSubmitted }) => (
       validate={[requiredEmail, nonEmpty, email]}
     />
     {isLoadingLogin && <p className="loading">Please wait ...</p>}
-    {!isLoadingLogin && <button className="btn btn-start"><i className="fa fa-play" /> Start Your Training Session</button>}
-  </form>
+    {!isLoadingLogin &&
+      <RaisedButton
+        label="Start Your Training Session"
+        labelPosition="before"
+        icon={<PlayCircleOutline color={fullWhite} />}
+        primary
+        fullWidth
+        type="submit"
+      />
+    }
+  </Form>
 );
 
-Form.propTypes = {
+LoginForm.propTypes = {
   onFormSubmitted: PropTypes.func.isRequired,
   isLoadingLogin: PropTypes.bool.isRequired,
 };
@@ -42,7 +52,7 @@ class FormContainer extends React.Component {
 
   render() {
     const { handleSubmit, isLoadingLogin } = this.props;
-    return (<Form
+    return (<LoginForm
       isLoadingLogin={isLoadingLogin}
       onFormSubmitted={handleSubmit(this.onFormSubmitted())}
     />);
