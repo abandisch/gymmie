@@ -90,7 +90,7 @@ export class DashboardContainer extends React.Component {
     event.preventDefault();
     alert('Sorry, this is not part of the MVP.');
     // this.redirectTo('/dashboard/my-workout');
-    // return <DialogModal title="test" message="test message" />;
+    return <DialogModal title="test" message="test message" />;
   }
 
   onSubmitTrainerWorkout = (event) => {
