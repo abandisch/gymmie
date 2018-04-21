@@ -1,6 +1,14 @@
 import * as api from '../api';
 import * as types from './types';
 
+export const openNavigation = () => ({
+  type: types.OPEN_NAVIGATION,
+});
+
+export const closeNavigation = () => ({
+  type: types.CLOSE_NAVIGATION,
+});
+
 export const showModal = (title, message) => ({
   type: types.SHOW_MODAL,
   modalProps: {

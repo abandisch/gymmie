@@ -5,6 +5,7 @@ import loading from './loading';
 import program from './program';
 import exercises from './exercises';
 import modal from './modal';
+import navigation from './navigation';
 
 export default combineReducers({
   form: formReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   program,
   exercises,
   modal,
+  navigation,
 });
