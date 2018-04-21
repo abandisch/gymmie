@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'normalize.css';
 import WebFont from 'webfontloader';
+import throttle from 'lodash/throttle';
 import GraphQLWrapper from './GraphQLWrapper';
 import Dashboard from './pages/Dashboard';
 import LandingPage from './pages/Landing';
@@ -14,6 +15,7 @@ import Header from './Header';
 import Footer from './Footer';
 import DialogModal from './DialogModal';
 import configureStore from '../configureStore';
+import { saveState } from '../localStorage';
 import './Root.css';
 
 WebFont.load({
@@ -23,6 +25,14 @@ WebFont.load({
 });
 
 const store = configureStore();
+
+store.subscribe(throttle(() => {
+  saveState({
+    user: store.getState().user,
+    program: store.getState().program,
+    exercises: store.getState().exercises,
+  });
+}), 1000);
 
 const Root = () => (
   <GraphQLWrapper>

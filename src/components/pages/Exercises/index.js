@@ -52,7 +52,7 @@ ExercisesPageComponent.defaultProps = {
 
 // @TODO: connect it to the state here and have a 'exercises loading'
 export const mapStateToProps = state => ({
-  isLoading: state.loading.selectProgram,
+  isLoading: state.loading.selectProgram || false,
   programName: state.program.name,
   weekNumber: utils.currentWeekNumber(state.program.startDate),
   dayNumber: utils.currentDayNumber(state.program.startDate),

@@ -2,9 +2,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
+import { loadState } from './localStorage';
 
 // Persisted State
-// const persistedState = {};
+const persistedState = loadState();
 
 const configureStore = () => {
   const middleware = [thunk];
@@ -15,7 +16,7 @@ const configureStore = () => {
 
   return createStore(
     reducer,
-    // persistedState, // add persistedState before the enhancer, i.e. applyMiddleware
+    persistedState, // add persistedState before the enhancer, i.e. applyMiddleware
     applyMiddleware(...middleware),
   );
 };
