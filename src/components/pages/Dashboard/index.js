@@ -6,11 +6,8 @@ import { withRouter } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import { fullWhite } from 'material-ui/styles/colors';
 import RightArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
-import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/action/home';
 import RequiresLogin from '../../RequiresLogin';
-import { showModal, openNavigation } from '../../../actions';
-import Navigation from '../../Navigation';
+import { showModal } from '../../../actions';
 import './Dashboard.css';
 
 const styles = {
@@ -20,20 +17,20 @@ const styles = {
 };
 
 export const Board = ({
-  onSubmitOwnWorkout, onSubmitTrainerWorkout, currentProgramId, onSubmitCurrentTrainerWorkout, onClickNavigation,
+  onSubmitOwnWorkout, onSubmitTrainerWorkout,
+  currentProgramId, onSubmitCurrentTrainerWorkout,
 }) => (
   <section className="dashboard">
     <h2 className="section-title">Gymmie Dashboard</h2>
-    <IconButton>
-      <ActionHome onClick={onClickNavigation}>
-        <Navigation />
-      </ActionHome>
-    </IconButton>
+
     <p>
       Select your preferred workout.
     </p>
 
     <form onSubmit={onSubmitOwnWorkout}>
+      <fieldset>
+        <legend>If you want to do your own exercises</legend>
+      </fieldset>
       <RaisedButton
         label="Do my own Workout"
         labelPosition="before"
@@ -45,8 +42,33 @@ export const Board = ({
       />
     </form>
 
+    {
+      currentProgramId !== '' &&
+      <div>
+        <form onSubmit={onSubmitCurrentTrainerWorkout}>
+          <fieldset>
+            <legend>... Or continue your selected Trainer Workout program:</legend>
+          </fieldset>
+          <RaisedButton
+            label="Continue with Trainer Workout"
+            labelPosition="before"
+            icon={<RightArrow color={fullWhite} />}
+            primary
+            fullWidth
+            type="submit"
+            style={styles.button}
+          />
+        </form>
+      </div>
+    }
 
     <form onSubmit={onSubmitTrainerWorkout}>
+      {
+      currentProgramId !== '' &&
+      <fieldset>
+        <legend>... Or select a new Trainer Workout program:</legend>
+      </fieldset>
+      }
       <RaisedButton
         label="Select a new Trainer Workout"
         labelPosition="before"
@@ -58,38 +80,12 @@ export const Board = ({
       />
     </form>
 
-    <p>... Or continue your selected Trainer Workout program:</p>
-
-    {
-      currentProgramId === '' &&
-      <p className="not-started">
-        You haven&lsquo;t selected a Trainer Workout Program yet.
-        Click the above button to select one.
-      </p>
-    }
-
-    {
-      currentProgramId !== '' &&
-      <form onSubmit={onSubmitCurrentTrainerWorkout}>
-        <RaisedButton
-          label="Continue Your Selected Trainer Workout"
-          labelPosition="before"
-          icon={<RightArrow color={fullWhite} />}
-          primary
-          fullWidth
-          type="submit"
-          style={styles.button}
-        />
-      </form>
-    }
-
   </section>
 );
 
 Board.propTypes = {
   onSubmitOwnWorkout: PropTypes.func.isRequired,
   onSubmitTrainerWorkout: PropTypes.func.isRequired,
-  onClickNavigation: PropTypes.func.isRequired,
   onSubmitCurrentTrainerWorkout: PropTypes.func.isRequired,
   currentProgramId: PropTypes.string.isRequired,
 };
@@ -129,7 +125,6 @@ export class DashboardContainer extends React.Component {
         onSubmitTrainerWorkout={this.onSubmitTrainerWorkout}
         onSubmitCurrentTrainerWorkout={this.onSubmitCurrentTrainerWorkout}
         currentProgramId={this.props.currentProgramId}
-        onClickNavigation={this.props.onClickNavigation}
       />);
   }
 }
@@ -138,7 +133,6 @@ DashboardContainer.propTypes = {
   history: PropTypes.shape({}).isRequired,
   currentProgramId: PropTypes.string.isRequired,
   showDialogModal: PropTypes.func.isRequired,
-  onClickNavigation: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = state => ({
@@ -147,7 +141,6 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   showDialogModal: (title, message) => dispatch(showModal(title, message)),
-  onClickNavigation: () => dispatch(openNavigation()),
 });
 
 export default

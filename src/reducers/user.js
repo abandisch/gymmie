@@ -8,6 +8,8 @@ const user = (state = {}, action) => {
       return { ...state, ...action.user };
     case types.FETCH_JWT_SUCCESS:
       return { ...state, ...{ gymTrackerJWT: action.jwt, email: action.email } };
+    case types.LOGOUT:
+      return {};
     default:
       return state;
   }

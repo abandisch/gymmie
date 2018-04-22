@@ -1,12 +1,21 @@
 import * as api from '../api';
 import * as types from './types';
 
+export const logout = () => ({
+  type: types.LOGOUT,
+});
+
 export const openNavigation = () => ({
   type: types.OPEN_NAVIGATION,
 });
 
 export const closeNavigation = () => ({
   type: types.CLOSE_NAVIGATION,
+});
+
+export const toggleNavigation = toggle => ({
+  type: types.TOGGLE_NAVIGATION,
+  toggle,
 });
 
 export const showModal = (title, message) => ({

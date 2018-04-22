@@ -1,11 +1,15 @@
 import * as types from '../actions/types';
 
-const program = (state = false, action) => {
+const program = (state = { open: false }, action) => {
   switch (action.type) {
     case types.OPEN_NAVIGATION:
-      return true;
+      return { ...state, open: true };
     case types.CLOSE_NAVIGATION:
-      return false;
+      return { ...state, open: false };
+    case types.TOGGLE_NAVIGATION:
+      return { ...state, open: action.toggle };
+    case types.LOGOUT:
+      return { ...state, open: false };
     default:
       return state;
   }

@@ -22,6 +22,8 @@ const exercises = (state = {}, action) => {
       return Object.assign({}, state, {
         [action.exerciseId]: exerciseSets(state[action.exerciseId], action),
       });
+    case types.LOGOUT:
+      return {};
     default:
       return state;
   }

@@ -16,6 +16,7 @@ import Footer from './Footer';
 import DialogModal from './DialogModal';
 import configureStore from '../configureStore';
 import { saveState } from '../localStorage';
+import Navigation from './Navigation';
 import './Root.css';
 
 WebFont.load({
@@ -30,7 +31,6 @@ store.subscribe(throttle(() => {
   saveState({
     user: store.getState().user,
     program: store.getState().program,
-    exercises: store.getState().exercises,
   });
 }), 1000);
 
@@ -40,6 +40,7 @@ const Root = () => (
       <Router>
         <MuiThemeProvider>
           <div>
+            <Navigation />
             <div className="page-wrapper">
               <Header />
               <Route exact path="/" component={LandingPage} />

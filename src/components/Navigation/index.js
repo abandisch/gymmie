@@ -1,32 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { closeNavigation } from '../../actions';
+import IconButton from 'material-ui/IconButton';
+import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu';
+import NavigationMenu from './NavMenu';
+import { openNavigation } from '../../actions';
+import './Navigation.css';
 
-export const Nav = ({ isOpen, onClickClose }) => (
-  <Drawer
-    docked={false}
-    width={300}
-    open={isOpen}
-  >
-    <MenuItem onClick={onClickClose}>Menu Item</MenuItem>
-    <MenuItem onClick={onClickClose}>Menu Item 2</MenuItem>
-  </Drawer>
+const Nav = ({ displayNavigation, onClickNavigation }) => (
+  displayNavigation ?
+    <nav>
+      <NavigationMenu />
+      <IconButton className="btn-navigation">
+        <NavigationMenuIcon onClick={onClickNavigation} />
+      </IconButton>
+    </nav> : null
 );
 
 Nav.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClickClose: PropTypes.func.isRequired,
+  onClickNavigation: PropTypes.func.isRequired,
+  displayNavigation: PropTypes.bool.isRequired,
 };
 
 export const mapStateToProps = state => ({
-  isOpen: state.navigation.open || false,
+  displayNavigation: state.user.gymTrackerJWT !== undefined,
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onClickClose: dispatch(closeNavigation()),
+  onClickNavigation: () => dispatch(openNavigation()),
 });
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

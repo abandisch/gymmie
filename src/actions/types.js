@@ -15,3 +15,5 @@ export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 export const OPEN_NAVIGATION = 'OPEN_NAVIGATION';
 export const CLOSE_NAVIGATION = 'CLOSE_NAVIGATION';
+export const TOGGLE_NAVIGATION = 'TOGGLE_NAVIGATION';
+export const LOGOUT = 'LOGOUT';
