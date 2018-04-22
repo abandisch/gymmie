@@ -37,11 +37,13 @@ export const NavMenu = ({
         containerElement={<Link to="/dashboard" />}
         primaryText="Dashboard"
         leftIcon={<HomeIcon />}
+        onClick={onClickClose}
       />
       <MenuItem
         containerElement={<Link to="/dashboard/training-programs" />}
         primaryText="Training Programs"
         leftIcon={<ListIcon />}
+        onClick={onClickClose}
       />
       <MenuItem
         primaryText="Logout"

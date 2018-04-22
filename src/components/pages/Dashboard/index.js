@@ -63,12 +63,11 @@ export const Board = ({
     }
 
     <form onSubmit={onSubmitTrainerWorkout}>
-      {
-      currentProgramId !== '' &&
       <fieldset>
-        <legend>... Or select a new Trainer Workout program:</legend>
+        <legend>
+          ... Or select a {currentProgramId !== '' && <span> new </span>} Trainer Workout program:
+        </legend>
       </fieldset>
-      }
       <RaisedButton
         label="Select a new Trainer Workout"
         labelPosition="before"
