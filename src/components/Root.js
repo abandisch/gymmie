@@ -43,11 +43,13 @@ const Root = () => (
             <Navigation />
             <div className="page-wrapper">
               <Header />
-              <Route exact path="/" component={LandingPage} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/dashboard/my-workout" component={OwnWorkoutPage} />
-              <Route exact path="/dashboard/training-programs" component={ProgramsPage} />
-              <Route exact path="/dashboard/training-programs/:programId" component={ExercisesPage} />
+              <main role="main">
+                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/dashboard/my-workout" component={OwnWorkoutPage} />
+                <Route exact path="/dashboard/training-programs" component={ProgramsPage} />
+                <Route exact path="/dashboard/training-programs/:programId" component={ExercisesPage} />
+              </main>
             </div>
             <Footer />
             <DialogModal />

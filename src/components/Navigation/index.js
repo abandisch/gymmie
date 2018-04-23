@@ -11,7 +11,7 @@ const Nav = ({ displayNavigation, onClickNavigation }) => (
   displayNavigation ?
     <nav>
       <NavigationMenu />
-      <IconButton className="btn-navigation">
+      <IconButton className="btn-navigation" aria-label="Open Navigation Menu">
         <NavigationMenuIcon onClick={onClickNavigation} />
       </IconButton>
     </nav> : null

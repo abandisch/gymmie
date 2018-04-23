@@ -4,7 +4,7 @@ import './Header.css';
 const logo = require('../../images/app-icon.png');
 
 const Heading = () => (
-  <header>
+  <header role="banner">
     <div className="container">
       <h1><img src={logo} alt="Gymmie Logo" /> Gymmie</h1>
       <span>Workout Tracking Buddy</span>

@@ -14,7 +14,8 @@
       "components": [ "Link" ],
       "specialLink": [ "hrefLeft", "hrefRight", "to" ],
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
-    }]
+    }],
+    "jsx-a11y/no-redundant-roles": 0
   },
   "parser": "babel-eslint",
   "plugins": ["jest"],

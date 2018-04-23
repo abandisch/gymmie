@@ -24,7 +24,7 @@ export const NavMenu = ({
     onRequestChange={onToggleNavigation}
   >
     <AppBar
-      iconElementLeft={<IconButton><NavigationCloseIcon /></IconButton>}
+      iconElementLeft={<IconButton aria-label="Close Navigation Manu"><NavigationCloseIcon /></IconButton>}
       title="Gymmie"
       onClick={onClickClose}
     />
