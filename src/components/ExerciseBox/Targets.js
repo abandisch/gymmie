@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Targets.css';
+import './Targets-media-queries.css';
 
 const Targets = ({ targetSets, targetReps }) => (
   <div className="targets">

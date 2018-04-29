@@ -1,8 +1,9 @@
 .exercises .week-and-day-number {
   text-align: center;
-  font-size: 4vw;
+  font-size: 1em;
   margin: 5px 0 10px;
 }
 .exercises h2 {
-  margin: 10px 0 5px;
+  max-width: 300px;
+  margin: 17px auto 5px;
 }

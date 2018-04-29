@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Notes.css';
+import './Notes-media-queries.css';
 
 const Notes = ({ ptNote }) => (
   <div className="pt-notes">

@@ -6,9 +6,9 @@
 .exercise-box .pt-notes span {
   display: block;
   font-weight: bold;
-  font-size: 4vw;
+  font-size: 0.95em;
 }
 .exercise-box .pt-notes p {
   margin: 5px 0 0;
-  font-size: 3.5vw;
+  font-size: 0.82em;
 }

@@ -6,6 +6,7 @@ import Notes from './Notes';
 import SetsForm from './SetsForm';
 import ExerciseSetsTable from './SetsTable';
 import './ExerciseBox.css';
+import './ExerciseBox-media-queries.css';
 
 const ExerciseBox = ({
   exerciseId, name, lastSession, targets, ptNote,

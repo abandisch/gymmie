@@ -8,6 +8,7 @@ import RequiresLogin from '../../RequiresLogin';
 import ExercisesList from '../../ExercisesList';
 import * as utils from '../../../utils';
 import './Exercises.css';
+import './Exercises-media-queries.css';
 
 export const ExercisesPageComponent = ({
   match: { params }, isLoading, programName, weekNumber, dayNumber,

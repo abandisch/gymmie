@@ -11,6 +11,7 @@ import { Field, reduxForm, reset, Form } from 'redux-form';
 import TextInput from '../TextInput';
 import { addSetToExercise } from '../../actions';
 import './SetsForm.css';
+import './SetsForm-media-queries.css';
 
 const styles = {
   button: {

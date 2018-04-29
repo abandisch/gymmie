@@ -1,0 +1,19 @@
+@media screen and (min-width: 776px) {
+  .exercise-box {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  .exercise-box h3 {
+    width: 50%;
+    font-size: 1em;
+    padding: 8px 10px;
+    line-height: 35px;
+    font-size: 1.2em;
+    text-align: left;
+  }
+  .exercise-box .no-prev {
+    padding: 8px 10px;
+  }
+}

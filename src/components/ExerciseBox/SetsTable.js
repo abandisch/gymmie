@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './SetsTable.css';
+import './SetsTable-media-queries.css';
 
 const setsTableRow = set => (
   <tr key={set.setNumber}>

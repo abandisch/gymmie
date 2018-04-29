@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './LastSession.css';
+import './LastSession-media-queries.css';
 
 const LastSessionBox = ({ lastSession }) => (
   lastSession ?
@@ -11,7 +12,7 @@ const LastSessionBox = ({ lastSession }) => (
       </div>
     ) :
       <div className="last-session">
-        <p>No previous session details</p>
+        <p className="no-prev">No previous session details</p>
       </div>
 );
 

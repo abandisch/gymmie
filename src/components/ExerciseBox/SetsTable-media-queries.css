@@ -1,0 +1,6 @@
+@media screen and (min-width: 776px) {
+  .exercise-box .set-table {
+    width: 60%;
+    margin-top: 10px;
+  }
+}
