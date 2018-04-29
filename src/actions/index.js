@@ -1,9 +1,13 @@
 import * as api from '../api';
 import * as types from './types';
+import { clearState } from '../localStorage';
 
-export const logout = () => ({
-  type: types.LOGOUT,
-});
+export const logout = () => (dispatch) => {
+  dispatch({
+    type: types.LOGOUT,
+  });
+  clearState(); // clear localstorage state
+};
 
 export const openNavigation = () => ({
   type: types.OPEN_NAVIGATION,
@@ -52,6 +56,29 @@ export const addSetToExercise = (exerciseId, set) => (dispatch, getState) => {
         dispatch({
           type: types.ADD_EXERCISE_SET_FAILURE,
           message: error.message || 'Something went wrong.',
+        });
+      },
+    );
+};
+
+export const refreshJWT = () => (dispatch, getState) => {
+  dispatch({
+    type: types.REFRESH_JWT_REQUEST,
+  });
+  const currentJWT = getState().user.gymTrackerJWT;
+  return api.refreshJWT(currentJWT)
+    .then(
+      (response) => {
+        dispatch({
+          type: types.REFRESH_JWT_SUCCESS,
+          jwt: response.jwt,
+        });
+      },
+      (error) => {
+        dispatch({
+          type: types.REFRESH_JWT_FAILURE,
+          emailAddress: getState().user.email,
+          message: error.message || 'Something went wrong refreshing JWT.',
         });
       },
     );

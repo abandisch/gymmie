@@ -1,5 +1,21 @@
 import { LOGIN_API_URL, APP_NAME, STR_TRCKR_API_URL } from '../config';
 
+export const refreshJWT = (currentJWT) => {
+  const init = {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${currentJWT}`,
+    },
+  };
+  return fetch(`${LOGIN_API_URL}/refresh`, init)
+    .then(
+      response => response.json(),
+      error => Promise.reject(new Error(error.message || `Problem connecting to ${APP_NAME}`)),
+    )
+    .then(({ authToken }) => ({ jwt: authToken }))
+    .catch(() => Promise.reject(new Error(`Problem connecting to ${APP_NAME}.`)));
+};
+
 export const fetchJWT = (user) => {
   const init = {
     method: 'POST',

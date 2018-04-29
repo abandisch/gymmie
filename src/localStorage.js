@@ -18,3 +18,11 @@ export const saveState = (state) => {
     // ignore errors for now ...
   }
 };
+
+export const clearState = () => {
+  try {
+    localStorage.removeItem('gymmieState');
+  } catch (err) {
+    // ignore errors for now ...
+  }
+};
