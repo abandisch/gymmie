@@ -6,6 +6,7 @@ import NavigationMenuIcon from 'material-ui/svg-icons/navigation/menu';
 import NavigationMenu from './NavMenu';
 import { openNavigation } from '../../actions';
 import './Navigation.css';
+import './Navigation-media-queries.css';
 
 const Nav = ({ displayNavigation, onClickNavigation }) => (
   displayNavigation ?

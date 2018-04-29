@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import './Header-media-queries.css';
 
 const logo = require('../../images/app-icon.png');
 

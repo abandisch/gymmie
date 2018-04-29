@@ -1,0 +1,12 @@
+@media screen and (min-width: 480px) {
+  .dashboard .form {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 776px) {
+  .dashboard > p {
+    text-align: center;
+  }
+}

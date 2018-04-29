@@ -9,6 +9,7 @@ import RightArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 import RequiresLogin from '../../RequiresLogin';
 import { showModal } from '../../../actions';
 import './Dashboard.css';
+import './Dashboard-media-queries.css';
 
 const styles = {
   button: {
@@ -27,7 +28,7 @@ export const Board = ({
       Select your preferred workout.
     </p>
 
-    <form onSubmit={onSubmitOwnWorkout}>
+    <form className="form" onSubmit={onSubmitOwnWorkout}>
       <fieldset>
         <legend>If you want to do your own exercises</legend>
       </fieldset>
@@ -45,7 +46,7 @@ export const Board = ({
     {
       currentProgramId !== '' &&
       <div>
-        <form onSubmit={onSubmitCurrentTrainerWorkout}>
+        <form className="form" onSubmit={onSubmitCurrentTrainerWorkout}>
           <fieldset>
             <legend>... Or continue your selected Trainer Workout program:</legend>
           </fieldset>
@@ -62,7 +63,7 @@ export const Board = ({
       </div>
     }
 
-    <form onSubmit={onSubmitTrainerWorkout}>
+    <form className="form" onSubmit={onSubmitTrainerWorkout}>
       <fieldset>
         <legend>
           ... Or select a {currentProgramId !== '' && <span> new </span>} Trainer Workout program:

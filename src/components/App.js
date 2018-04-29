@@ -12,6 +12,7 @@ import Footer from './Footer';
 import DialogModal from './DialogModal';
 import Navigation from './Navigation';
 import './App.css';
+import './App-media-queries.css';
 
 WebFont.load({
   google: {
