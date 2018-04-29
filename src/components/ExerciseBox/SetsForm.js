@@ -10,6 +10,7 @@ import NotInterested from 'material-ui/svg-icons/av/not-interested';
 import { Field, reduxForm, reset, Form } from 'redux-form';
 import TextInput from '../TextInput';
 import { addSetToExercise } from '../../actions';
+import { nonEmpty, requiredWeight, requiredReps } from '../../utils/formValidators';
 import './SetsForm.css';
 import './SetsForm-media-queries.css';
 
@@ -30,6 +31,7 @@ export const InputForm = ({
         placeholder="E.g. 10 or Body Weight"
         maxLength={30}
         component={TextInput}
+        validate={[requiredWeight, nonEmpty]}
       />
       <Field
         name="reps"
@@ -38,6 +40,7 @@ export const InputForm = ({
         maxLength={20}
         type="number"
         component={TextInput}
+        validate={[requiredReps, nonEmpty]}
       />
       <RaisedButton
         label="Save"

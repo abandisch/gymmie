@@ -8,7 +8,7 @@ import { fullWhite } from 'material-ui/styles/colors';
 import PlayCircleOutline from 'material-ui/svg-icons/av/play-circle-outline';
 import { ScaleLoader } from 'react-spinners';
 import 'font-awesome/css/font-awesome.min.css';
-import { requiredEmail, email, nonEmpty } from './validators';
+import { requiredEmail, email, nonEmpty } from '../../utils/formValidators';
 import { fetchJWT } from '../../actions';
 import Input from '../TextInput';
 import './LoginForm.css';
