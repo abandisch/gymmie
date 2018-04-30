@@ -10,10 +10,11 @@ import './Navigation-media-queries.css';
 
 const Nav = ({ displayNavigation, onClickNavigation }) => (
   displayNavigation ?
-    <nav>
+    // eslint-disable-next-line
+    <nav role="navigation">
       <NavigationMenu />
-      <IconButton className="btn-navigation" aria-label="Open Navigation Menu">
-        <NavigationMenuIcon onClick={onClickNavigation} />
+      <IconButton className="btn-navigation" aria-label="Open Navigation Menu" onClick={onClickNavigation}>
+        <NavigationMenuIcon aria-hidden="true" />
       </IconButton>
     </nav> : null
 );

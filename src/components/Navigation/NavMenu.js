@@ -24,7 +24,7 @@ export const NavMenu = ({
     onRequestChange={onToggleNavigation}
   >
     <AppBar
-      iconElementLeft={<IconButton aria-label="Close Navigation Manu"><NavigationCloseIcon /></IconButton>}
+      iconElementLeft={<IconButton aria-label="Close Navigation Manu"><NavigationCloseIcon aria-hidden="true" /></IconButton>}
       title="Gymmie"
       onClick={onClickClose}
     />
@@ -36,18 +36,18 @@ export const NavMenu = ({
       <MenuItem
         containerElement={<Link to="/dashboard" />}
         primaryText="Dashboard"
-        leftIcon={<HomeIcon />}
+        leftIcon={<HomeIcon role="img" aria-hidden="true" />}
         onClick={onClickClose}
       />
       <MenuItem
         containerElement={<Link to="/dashboard/training-programs" />}
         primaryText="Training Programs"
-        leftIcon={<ListIcon />}
+        leftIcon={<ListIcon role="img" aria-hidden="true" />}
         onClick={onClickClose}
       />
       <MenuItem
         primaryText="Logout"
-        leftIcon={<NavigationLogoutIcon />}
+        leftIcon={<NavigationLogoutIcon role="img" aria-hidden="true" />}
         onClick={onClickLogout}
       />
     </Menu>

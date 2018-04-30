@@ -35,7 +35,7 @@ export const Board = ({
       <RaisedButton
         label="Do my own Workout"
         labelPosition="before"
-        icon={<RightArrow color={fullWhite} />}
+        icon={<RightArrow color={fullWhite} aria-hidden="true" />}
         primary
         fullWidth
         type="submit"
@@ -53,7 +53,7 @@ export const Board = ({
           <RaisedButton
             label="Continue with Trainer Workout"
             labelPosition="before"
-            icon={<RightArrow color={fullWhite} />}
+            icon={<RightArrow color={fullWhite} aria-hidden="true" />}
             primary
             fullWidth
             type="submit"
@@ -72,7 +72,7 @@ export const Board = ({
       <RaisedButton
         label="Select a new Trainer Workout"
         labelPosition="before"
-        icon={<RightArrow color={fullWhite} />}
+        icon={<RightArrow color={fullWhite} aria-hidden="true" />}
         primary
         fullWidth
         type="submit"
