@@ -1,6 +1,6 @@
 import * as types from '../actions/types';
 
-const program = (state = { open: false }, action) => {
+const navigation = (state = { open: false }, action) => {
   switch (action.type) {
     case types.OPEN_NAVIGATION:
       return { ...state, open: true };
@@ -15,4 +15,4 @@ const program = (state = { open: false }, action) => {
   }
 };
 
-export default program;
+export default navigation;
