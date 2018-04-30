@@ -10,6 +10,10 @@ describe('<ExercisesPageComponent />', () => {
           programId: 'testprogid',
         },
       },
+      isLoading: false,
+      programName: 'test program',
+      weekNumber: 1,
+      dayNumber: 1,
     };
     shallow(<ExercisesPageComponent {...props} />);
   });
