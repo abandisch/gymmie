@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import './SetsTable.css';
 import './SetsTable-media-queries.css';
 
-const setsTableRow = set => (
+export const setsTableRow = set => (
   <tr key={set.setNumber}>
     <td>{set.setNumber}</td>
     <td>{set.weight}</td>
     <td>{set.reps}</td>
   </tr>
 );
+
+export const buildTableRows = sets => sets.map(set => setsTableRow(set));
 
 export const SetsTable = ({ name, sets }) => (
   <table className="set-table">
@@ -24,7 +26,7 @@ export const SetsTable = ({ name, sets }) => (
     </thead>
     <tbody>
       {sets.length === 0 && <tr><td colSpan="3">Click on &lsquo;Add Set&rsquo; to record a set</td></tr>}
-      {sets.length > 0 && sets.map(set => setsTableRow(set))}
+      {sets.length > 0 && buildTableRows(sets)}
     </tbody>
   </table>
 );
@@ -38,7 +40,7 @@ SetsTable.propTypes = {
   })).isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   sets: state.exercises[ownProps.exerciseId] || [],
 });
 

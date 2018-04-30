@@ -125,7 +125,7 @@ SetForm.propTypes = {
   addExerciseSet: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   resetForm: () => dispatch(reset('setForm')),
   addExerciseSet: (weight, reps) =>
     dispatch(addSetToExercise(ownProps.exerciseId, { weight, reps })),

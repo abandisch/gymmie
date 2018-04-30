@@ -32,7 +32,7 @@ ModalComponent.defaultProps = {
   message: '',
 };
 
-class DialogModal extends React.Component {
+export class PopupDialogModal extends React.Component {
   onClickClose = () => {
     const { hideDialogModal } = this.props;
     hideDialogModal();
@@ -61,7 +61,7 @@ class DialogModal extends React.Component {
   }
 }
 
-DialogModal.propTypes = {
+PopupDialogModal.propTypes = {
   modalProps: PropTypes.shape({
     title: PropTypes.string,
     message: PropTypes.string,
@@ -79,4 +79,4 @@ export const mapDispatchToProps = dispatch => ({
   hideDialogModal: () => dispatch(hideModal()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DialogModal);
+export default connect(mapStateToProps, mapDispatchToProps)(PopupDialogModal);

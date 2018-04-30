@@ -10,12 +10,14 @@ import App from './App';
 
 const store = configureStore();
 
-store.subscribe(throttle(() => {
+export const saveStoreState = () => {
   saveState({
     user: store.getState().user,
     program: store.getState().program,
   });
-}), 1000);
+};
+
+store.subscribe(throttle(saveStoreState), 1000);
 
 const Root = () => (
   <GraphQLWrapper>
