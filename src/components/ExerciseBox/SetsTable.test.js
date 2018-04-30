@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SetsTable, setsTableRow, buildTableRows, mapStateToProps } from './SetsTable';
+import { SetsTable, setsTableRow, buildTableRows } from './SetsTable';
 
 describe('<SetsTable />', () => {
   it('renders without crashing', () => {
