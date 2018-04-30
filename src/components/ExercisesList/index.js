@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import gql from 'graphql-tag';
 import { compose } from 'recompose';
@@ -66,22 +67,24 @@ const GET_EXERCISES =
     }
   }`;
 
+export const mapStateToProps = state => ({
+  programStartDate: state.program.startDate,
+});
+
 export default compose(
+  connect(mapStateToProps),
   withRouter,
   graphql(
     GET_EXERCISES,
     {
-      options: (props) => {
-        // when selecting a program the start date will be today
-        // @TODO: Add function to move forward on exercise day
-        const programStartDate = new Date().toISOString().split('T')[0];
-        return ({
+      options: props =>
+        ({
           variables: {
             programId: props.match.params.programId,
-            dayNumber: utils.currentDayNumber(programStartDate),
+            dayNumber: utils.currentDayNumber(props.programStartDate),
           },
-        });
-      },
+        })
+      ,
     },
   ),
   withApollo,
