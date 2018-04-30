@@ -36,7 +36,6 @@ export const LoginFormComponent = ({ isLoadingLogin, onFormSubmitted }) => (
       <RaisedButton
         label="Start Your Training Session"
         labelPosition="before"
-        icon={<PlayCircleOutline color={fullWhite} />}
         primary
         fullWidth
         type="submit"
