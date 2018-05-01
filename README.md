@@ -49,7 +49,9 @@ Feedback from users was positive. They liked to be able to select from a pre-def
 
 ## MVP App Screenshots
 
-TBC
+![Gymmie - Screen captures - 01](https://github.com/abandisch/gymmie/blob/master/mvp-screen-captures/gymmie-scrncap-01.jpg)
+
+![Gymmie - Screen captures - 02](https://github.com/abandisch/gymmie/blob/master/mvp-screen-captures/gymmie-scrncap-02.jpg)
 
 ## Wireframes
 
