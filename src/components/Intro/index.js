@@ -10,10 +10,6 @@ const Intro = () => (
       ones created by trainers.
     </p>
     <p>
-      Gymmie provides an easy interface to help you track your
-      exercises, weights and reps at the gym.
-    </p>
-    <p>
       To start off, enter your email address.
       Then, either select &quot;Do My Own Workout&quot; to track your own strength exercises,
       or select &quot;Select a Trainer Workout&quot; to select from a list of exercises created
