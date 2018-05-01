@@ -1,10 +1,11 @@
 # Gymmie - Strength/Workout Tracking Buddy [![Build Status](https://travis-ci.org/abandisch/gymmie.svg?branch=master)](https://travis-ci.org/abandisch/gymmie)
 
-This app lets people that regularly go to the gym track their exercise results in every session, allowing them to review their pervious results, so that with each new session, they can use the results of the previous session as the goal to beat (or match) for the current session. Over time the person going to the gym will be able to see how they have improved.
+Use Gymmie to track your strength exercises at the gym. If a user doesn't have a regular workout, then they can select from one of the predefined ones created by trainers (sourced externally).
+Users can track their exercise results (weight/reps) in every session, and review their pervious results, so that with each new session, they can use the results of the previous session as the goal to beat (or match) for the current session. Or in the case of a pre-defined workout, they just follow the recommended sets/weight.
 
 ## Minimum Viable Product URL
 
-https://gymmie-abandisch.now.sh/
+https://gymmie-abandisch.netlify.com/
 
 ## Stack
 
@@ -36,7 +37,7 @@ https://gymmie-abandisch.now.sh/
 
 The MVP will only implement PT Provided Training Sessions & Exercises part of the app.
 
-* As a gym goer/app user, I want to login to the app with Facebook, so I don't have to remember my login details
+* As a gym goer/app user, I want to login to the app with an email, so I don't have to remember my login password details
 * As a gym goer/app user, I want to select a training program, so that I can do the predetermined exercises provided for me
 * As a gym goer/app user, I want to record my a set (weight and reps) for an exercise
 * As a gym goer/app user, I want to update the set (reps and weight), so that I can fix mistakes I may have made
@@ -44,7 +45,7 @@ The MVP will only implement PT Provided Training Sessions & Exercises part of th
 
 ## MVP Feedback
 
-TBC
+Feedback from users was positive. They liked to be able to select from a pre-defined list of training sessions and adding sets for each exercise was easy to follow. They would have like to add their own exercises, but this was not part of the MVP.
 
 ## MVP App Screenshots
 
