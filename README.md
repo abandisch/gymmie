@@ -11,6 +11,7 @@ https://gymmie-abandisch.netlify.com/
 
 * Client: React
 * Tests: Enzyme, Jest
+* Server: https://github.com/abandisch/gym-tracker-server
 
 ## User Stories
 
