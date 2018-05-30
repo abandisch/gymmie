@@ -31,13 +31,16 @@ export const LoginFormComponent = ({ isLoadingLogin, onFormSubmitted }) => (
       </div>
     }
     {!isLoadingLogin &&
-      <RaisedButton
-        label="Start Your Training Session"
-        labelPosition="before"
-        primary
-        fullWidth
-        type="submit"
-      />
+      <div>
+        <RaisedButton
+          label="Start Your Training Session"
+          labelPosition="before"
+          primary
+          fullWidth
+          type="submit"
+        />
+        <p style={{ textAlign: 'center', fontsize: '0.9em' }}>Demo login: demo@gymmie.com</p>
+      </div>
     }
   </Form>
 );
